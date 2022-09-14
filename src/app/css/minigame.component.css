@@ -1,0 +1,29 @@
+.minigame {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    background-color: rgb(117, 117, 117);
+    width: 60%;
+    height: 300px;
+    border-radius: 20px;
+}
+
+.minigame form input {
+    height: 18px;
+    width: 18px;
+    margin: 5px 7px;
+}
+
+.divMinigame {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    
+    background-color: rgba(0, 0, 0, 0.101);
+    height: auto;
+    max-height: 300px;
+    width: 500px;
+}
