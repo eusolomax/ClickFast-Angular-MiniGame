@@ -69,6 +69,7 @@ export class AppComponent {
         this.StartDisabledCheckBox = false
         this.redClassBoolean = false
         event.target.value = 120
+        this.valueCheckbox = 120
       }, 1200);
     }
 

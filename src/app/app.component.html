@@ -1,10 +1,11 @@
 <body>
   <div class="title">
-    <h1>Click Fast</h1>
+    <h1>ClickFast!</h1>
     <p>Desafie seus amigos e descubra quem é o mais rápido!</p>
   </div>
 
   <section class="minigame">
+    <!-- lobby -->
     <div class="startDiv" *ngIf="showStartScreen == true">
       <div class="startTitle">
         <h1>Escolha o numero de checkboxes!</h1>
@@ -23,7 +24,7 @@
         </form>
       </div>
 
-      <button class="startIniciar" (click)="startMiniGame()">Iniciar!</button>
+      <button class="startIniciar" (click)="startMiniGame()" [disabled]="StartDisabledCheckBox">Iniciar!</button>
     </div>
 
     <!-- minigame -->
