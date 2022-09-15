@@ -21,6 +21,9 @@ export class AppComponent {
   redClassBooleanTitle: boolean = false
   disableChoice: boolean = false
 
+  minigameSet: boolean = false
+  minigameGo: boolean = false
+
   clearChoices(){
     document.getElementsByName("prefabChoice").forEach((el: any) => {el.checked = false})
   }
@@ -96,5 +99,14 @@ export class AppComponent {
 
   endToLobby(){
     window.location.replace("http://localhost:4200");  
+  }
+
+  setGo(){
+    this.minigameSet = true
+    setTimeout(() => {
+      this.minigameGo = true
+      this.minigameSet = false
+    }, 2000);
+
   }
 }

@@ -38,12 +38,20 @@
         <p>Voltar</p>
       </div>
 
+      <div class="setGo">
+        <h1>
+          <span [ngClass]="minigameSet ? 'setColorAfter' : 'setColorBefore'">SET</span> >
+          <span [ngClass]="minigameGo ? 'goColorAfter' : 'goColorBefore'">GO!</span>
+        </h1>
+        <button (click)="setGo()" [disabled]="minigameGo">START</button>
+      </div>
+
       <div class="divMinigameFlex">
         <form>
           <div class="divMinigame">
             <input type="checkbox"
             *ngFor="let input of inputs; index as index"
-            [disabled]="index != caradavez"
+            [disabled]="index != caradavez || minigameGo == false"
             (click)="caradavez = caradavez + 1">
           </div>
         </form>

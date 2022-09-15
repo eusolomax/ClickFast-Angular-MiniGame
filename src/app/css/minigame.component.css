@@ -43,6 +43,7 @@
 
 .divMinigameFlex {
     display: flex;
+    justify-content: center;
 }
 
 .divMinigameOptions {
@@ -71,3 +72,29 @@
 .divMinigameOptions button:hover {
     transform: rotate(360deg);
 }
+
+.setGo {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 30px;
+
+}
+
+.setGo button {
+    color: black;
+    font-weight: 400;
+    font-size: 18px;
+    height: 32px;
+    width: 70px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.setColorBefore { color: #acaf06; }
+.goColorBefore { color: #04ac0a; }
+.setColorAfter { color: #ecf010 !important; }
+.goColorAfter { color: #10f018 !important; }
