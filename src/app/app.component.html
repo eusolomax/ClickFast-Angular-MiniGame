@@ -4,37 +4,50 @@
     <p>Desafie seus amigos e descubra quem é o mais rápido!</p>
   </div>
 
-  <section class="minigame">
-    <!-- lobby -->
-    <div class="startDiv" *ngIf="showStartScreen == true">
-      <div class="startTitle">
-        <h1>Escolha o numero de checkboxes!</h1>
-        <p [ngClass]="redClassBoolean ? 'startRed' : ''">Limite máximo de 120</p>
-        <input class="startInputCheckboxes" type="number" (keyup)="getValue($event)" [disabled]="StartDisabledCheckBox">
+  <!-- lobby -->
+  <section class="lobbySection" *ngIf="showStartScreen">
+    <div class="lobby">
+      <div class="startDiv" *ngIf="showStartScreen == true">
+        <div class="startTitle">
+            <h1 [ngClass]="redClassBooleanTitle ? 'startRed' : ''">Escolha o numero de checkboxes!</h1>
+            <p [ngClass]="redClassBoolean ? 'startRed' : ''">Limite máximo de 90</p>
+            <input class="startInputCheckboxes" type="number" (keyup)="getValue($event)" [disabled]="StartDisabledCheckBox">
+          </div>
+
+          <div class="startChoices">
+            <small>Ou, escolha entre os abaixos!</small>
+            <form>
+              <label>10 <input type="radio" name="prefabChoice" [disabled]="disableChoice"></label>
+              <label>25 <input type="radio" name="prefabChoice" [disabled]="disableChoice"></label>
+              <label>30 <input type="radio" name="prefabChoice" [disabled]="disableChoice"></label>
+              <label>45 <input type="radio" name="prefabChoice" [disabled]="disableChoice"></label>
+              <button (click)="clearChoices()">Limpar</button>
+            </form>
+          </div>
+
+          <button class="startIniciar" (click)="startMiniGame()" [disabled]="StartDisabledCheckBox">Iniciar!</button>
+        </div>
+    </div>
+  </section>
+
+  <!-- minigame -->
+  <section class="minigame" *ngIf="showMiniGame">
+    <div class="minigameFlex" *ngIf="showMiniGame == true">
+      <div class="divMinigameOptions" (click)="endToLobby()">
+        <button>↺</button>
+        <p>Voltar</p>
       </div>
 
-      <div class="startChoices">
-        <small>Ou, escolha entre os abaixos!</small>
+      <div class="divMinigameFlex">
         <form>
-          <label>10 <input type="radio" name="prefabChoice" [disabled]="disableChoice"></label>
-          <label>25 <input type="radio" name="prefabChoice" [disabled]="disableChoice"></label>
-          <label>30 <input type="radio" name="prefabChoice" [disabled]="disableChoice"></label>
-          <label>45 <input type="radio" name="prefabChoice" [disabled]="disableChoice"></label>
-          <button (click)="clearChoices()">Limpar</button>
+          <div class="divMinigame">
+            <input type="checkbox"
+            *ngFor="let input of inputs; index as index"
+            [disabled]="index != caradavez"
+            (click)="caradavez = caradavez + 1">
+          </div>
         </form>
       </div>
-
-      <button class="startIniciar" (click)="startMiniGame()" [disabled]="StartDisabledCheckBox">Iniciar!</button>
     </div>
-
-    <!-- minigame -->
-    <form *ngIf="showMiniGame == true">
-      <div class="divMinigame">
-        <input type="checkbox"
-        *ngFor="let input of inputs; index as index"
-        [disabled]="index != caradavez"
-        (click)="caradavez = caradavez + 1">
-      </div>
-    </form>
   </section>
 </body>

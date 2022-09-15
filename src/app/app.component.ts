@@ -10,21 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent {
   inputs: Array<number> = []
-  caradavez = 0
-  showMiniGame = false
-  showStartScreen = true
-  id = 0
-  valueId = 0
-  valueCheckbox = 0
-  StartDisabledCheckBox = false
-  redClassBoolean = false
-  disableChoice = false
+  caradavez: number = 0
+  showMiniGame: boolean = false
+  showStartScreen: boolean = true
+  id: number = 0
+  valueId: number = 0
+  valueCheckbox: number = 0
+  StartDisabledCheckBox: boolean = false
+  redClassBoolean: boolean = false
+  redClassBooleanTitle: boolean = false
+  disableChoice: boolean = false
 
   clearChoices(){
     document.getElementsByName("prefabChoice").forEach((el: any) => {el.checked = false})
   }
 
   startMiniGame(){
+    if (this.valueId == 0 || this.valueCheckbox == 0){
+      this.redClassBooleanTitle = true
+      setTimeout(() => {
+        this.redClassBooleanTitle = false
+      }, 1200);
+    }
+
     for(let i = 0; i < document.getElementsByName("prefabChoice").length; i++) {
       const el: any = document.getElementsByName("prefabChoice")[i]
       if (el.checked) {
@@ -62,14 +70,14 @@ export class AppComponent {
   }
 
   checkMaxLength(event: any){
-    if (this.valueCheckbox > 120) {
+    if (this.valueCheckbox > 90) {
       this.StartDisabledCheckBox = true
       this.redClassBoolean = true
       setTimeout(() => {
         this.StartDisabledCheckBox = false
         this.redClassBoolean = false
-        event.target.value = 120
-        this.valueCheckbox = 120
+        event.target.value = 90
+        this.valueCheckbox = 90
       }, 1200);
     }
 
@@ -84,5 +92,9 @@ export class AppComponent {
   getValue(event: any){
     this.valueCheckbox = event.target.value
     this.checkMaxLength(event)
+  }
+
+  endToLobby(){
+    window.location.replace("http://localhost:4200");  
   }
 }
