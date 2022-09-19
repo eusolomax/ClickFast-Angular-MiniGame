@@ -4,7 +4,7 @@
     align-items: center;
     flex-direction: column;
 
-    background-color: rgb(117, 117, 117);
+    background-color: rgba(32, 32, 32, 0);
     width: 60%;
     height: 300px;
     border-radius: 20px;
@@ -81,6 +81,8 @@
     justify-content: flex-start;
     font-size: 30px;
 
+    margin-bottom: 20px;
+
 }
 
 .setGo button {
@@ -94,7 +96,12 @@
     cursor: pointer;
 }
 
-.setColorBefore { color: #acaf06; }
-.goColorBefore { color: #04ac0a; }
-.setColorAfter { color: #ecf010 !important; }
-.goColorAfter { color: #10f018 !important; }
+.setColorBefore { color: #9ea105; }
+.goColorBefore { color: #05960a; }
+.setColorAfter { color: #ecf010 !important; text-shadow: 0 0 8px rgba(251, 255, 0, 0.48);}
+.goColorAfter { color: #10f018 !important; text-shadow: 0 0 10px rgba(0, 255, 30, 0.833);}
+
+.minigameTimer {
+    margin-top: 5px;
+    font-size: 20px;
+}

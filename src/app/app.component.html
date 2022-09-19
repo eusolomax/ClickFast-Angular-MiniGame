@@ -1,5 +1,5 @@
 <body>
-  <div class="title">
+  <div *ngIf="!showMiniGame" class="title">
     <h1>ClickFast!</h1>
     <p>Desafie seus amigos e descubra quem é o mais rápido!</p>
   </div>
@@ -43,7 +43,12 @@
           <span [ngClass]="minigameSet ? 'setColorAfter' : 'setColorBefore'">SET</span> >
           <span [ngClass]="minigameGo ? 'goColorAfter' : 'goColorBefore'">GO!</span>
         </h1>
-        <button (click)="setGo()" [disabled]="minigameGo">START</button>
+        <button (click)="setGo()" [disabled]="minigameGo || minigameSet">{{textButtonMiniGame}}</button>
+        <div class="minigameTimer">
+          <span>{{watchMin}}</span> :
+          <span>{{watchSec}}</span> :
+          <span>{{watchMl}}</span>
+        </div>
       </div>
 
       <div class="divMinigameFlex">

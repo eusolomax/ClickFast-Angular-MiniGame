@@ -20,9 +20,15 @@ export class AppComponent {
   redClassBoolean: boolean = false
   redClassBooleanTitle: boolean = false
   disableChoice: boolean = false
+  textButtonMiniGame: string = "START"
 
   minigameSet: boolean = false
   minigameGo: boolean = false
+  minigameState: boolean = false
+  startStopWatch: any
+  watchMin: any = "0" + 0
+  watchSec: any = "0" + 0
+  watchMl: any = "00" + 0
 
   clearChoices(){
     document.getElementsByName("prefabChoice").forEach((el: any) => {el.checked = false})
@@ -102,11 +108,40 @@ export class AppComponent {
   }
 
   setGo(){
+    this.minigameState = false
+    this.minigameGo = false
     this.minigameSet = true
     setTimeout(() => {
-      this.minigameGo = true
       this.minigameSet = false
+      this.minigameGo = true
+      this.minigameState = true
+      this.startWatch()
     }, 2000);
+  }
 
+  startWatch(){
+    if (this.minigameState = true){
+      this.startStopWatch = setInterval(() => {
+          this.watchMl++
+          this.watchMl = this.watchMl < 10 ? "0" + this.watchMl : this.watchMl
+
+          if (this.watchMl == 100) {
+            this.watchSec++
+            this.watchSec = this.watchSec < 10 ? "0" + this.watchSec : this.watchSec
+
+            this.watchMl = 0
+          }
+
+          if (this.watchSec == 60) {
+            this.watchMin++
+            this.watchMin = this.watchMin < 10 ? "0" + this.watchMin : this.watchMin
+
+            this.watchSec = 0
+          }
+      }, 10)
+    } else {
+      clearInterval(this.startStopWatch)
+    }
   }
 }
+
