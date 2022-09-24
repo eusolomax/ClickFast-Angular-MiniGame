@@ -12,6 +12,7 @@ export class AppComponent {
   inputs: Array<number> = []
   caradavez: number = 0
   showMiniGame: boolean = false
+  showMiniGameDisplay: boolean = true
   showStartScreen: boolean = true
   id: number = 0
   valueId: number = 0
@@ -26,7 +27,8 @@ export class AppComponent {
   minigameGo: boolean = false
   minigameState: boolean = false
   startStopWatch: any
-  watchMin: any = "0" + 0
+  stopStopWatch = () => { clearInterval(this.startStopWatch) }
+  watchMin: any = 0
   watchSec: any = "0" + 0
   watchMl: any = "00" + 0
 
@@ -108,7 +110,6 @@ export class AppComponent {
   }
 
   setGo(){
-    this.minigameState = false
     this.minigameGo = false
     this.minigameSet = true
     setTimeout(() => {
@@ -141,6 +142,21 @@ export class AppComponent {
       }, 10)
     } else {
       clearInterval(this.startStopWatch)
+    }
+  }
+
+  endGame(){
+    this.stopStopWatch()
+    this.minigameState = false
+    this.showMiniGameDisplay = false
+    this.textButtonMiniGame = "RESTART"
+  }
+
+  addCounter(){
+    this.caradavez = this.caradavez + 1
+
+    if (this.caradavez == this.inputs.length) {
+      this.endGame()
     }
   }
 }

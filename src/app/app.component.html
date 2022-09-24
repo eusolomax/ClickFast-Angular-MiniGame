@@ -32,13 +32,13 @@
 
   <!-- minigame -->
   <section class="minigame" *ngIf="showMiniGame">
-    <div class="minigameFlex" *ngIf="showMiniGame == true">
-      <div class="divMinigameOptions" (click)="endToLobby()">
+    <div class="minigameFlex" *ngIf="showMiniGame">
+      <div class="divMinigameOptions" *ngIf="showMiniGameDisplay" (click)="endToLobby()">
         <button>↺</button>
         <p>Voltar</p>
       </div>
 
-      <div class="setGo">
+      <div class="setGo" *ngIf="showMiniGameDisplay">
         <h1>
           <span [ngClass]="minigameSet ? 'setColorAfter' : 'setColorBefore'">SET</span> >
           <span [ngClass]="minigameGo ? 'goColorAfter' : 'goColorBefore'">GO!</span>
@@ -51,15 +51,35 @@
         </div>
       </div>
 
-      <div class="divMinigameFlex">
+      <div class="divMinigameFlex" *ngIf="showMiniGameDisplay">
         <form>
           <div class="divMinigame">
             <input type="checkbox"
             *ngFor="let input of inputs; index as index"
             [disabled]="index != caradavez || minigameGo == false"
-            (click)="caradavez = caradavez + 1">
+            (click)="addCounter()">
           </div>
         </form>
+      </div>
+
+      <div *ngIf="this.minigameState == false && this.caradavez == this.inputs.length" class="finalOptionsMinigame">
+        <div class="divMinigameOptions" (click)="endToLobby()">
+          <button>↺</button>
+          <p>Voltar</p>
+        </div>
+  
+        <div class="setGo">
+          <h1>
+            <span [ngClass]="minigameGo ? 'goColorAfter' : 'goColorBefore'">FINAL SCORE:</span>
+          </h1>
+          <div class="minigameTimer">
+            <span>{{watchMin}}m </span>
+            <span>{{watchSec}}s </span>
+            <span>{{watchMl}}ms</span>
+          </div>
+          <div class="minigameCheckboxesMark">{{valueId}} Checkboxes</div>
+          <button class="buttonBackToLobby" (click)="endToLobby()">RESTART</button>
+        </div>
       </div>
     </div>
   </section>
