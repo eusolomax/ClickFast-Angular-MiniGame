@@ -5,6 +5,6 @@
 
 <br>
 
-## Personal remake and inspiration from *Checkbox Olympics.*
+## Personal remake. An inspiration from *Checkbox Olympics.*
 https://checkboxolympics.com/
 <br>
