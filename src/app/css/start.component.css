@@ -13,8 +13,10 @@
     height: 300px;
     
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+
+    margin-right: 15px;
 }
 
 .startDiv {
@@ -96,4 +98,32 @@ input {
 
 .startRed {
     color: rgb(230, 17, 17) !important;
+}
+
+.lobbyDivision {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.scoreBoard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 20px;
+    background-color: rgb(22 22 22);
+    height: 80px;
+    width: 15%;
+    padding: 2px 0;
+    margin-top: 26px;
+    font-size: 16px;
+}
+
+.ScoreBoardDiv {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: flex-end;
+    align-items: flex-end;
 }

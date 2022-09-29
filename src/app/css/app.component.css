@@ -1,12 +1,12 @@
 body {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
 
     background-color: rgb(11, 11, 11);
 
-    width: 100%;
+  justify-content: space-around;
     height: 100vh;
 }
 

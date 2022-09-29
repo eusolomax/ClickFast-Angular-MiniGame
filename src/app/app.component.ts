@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent {
   inputs: Array<number> = []
+  lastScores: Array<any> = [localStorage.getItem("data")]
   caradavez: number = 0
   showMiniGame: boolean = false
   showMiniGameDisplay: boolean = true
@@ -150,6 +151,9 @@ export class AppComponent {
     this.minigameState = false
     this.showMiniGameDisplay = false
     this.textButtonMiniGame = "RESTART"
+    
+    this.lastScores = [this.getData()]
+    localStorage.setItem("data", `${this.lastScores}`)
   }
 
   addCounter(){
@@ -158,6 +162,11 @@ export class AppComponent {
     if (this.caradavez == this.inputs.length) {
       this.endGame()
     }
+  }
+
+  getData(){
+    let data = `(${this.valueId}) | ${this.watchMin}m ${this.watchSec}s ${this.watchMl}ms`
+    return data
   }
 }
 
