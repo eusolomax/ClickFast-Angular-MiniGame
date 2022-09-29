@@ -126,4 +126,5 @@ input {
     height: auto;
     justify-content: flex-end;
     align-items: flex-end;
+    padding-right: 18px;
 }
